@@ -1,3 +1,6 @@
+## I wrote this pool of f's instinctively,
+## though the result is not very efficient ...
+
 import math
 
 def list_to_heap(A):
