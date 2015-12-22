@@ -1,0 +1,3 @@
+Called <function f at 0x7f380531b268> with arguments: (1, 1) {}
+Called <function f at 0x7f3805346bf8> with arguments: (1, 1) {}
+Called <function f at 0x7f3805346bf8> with arguments: (1, 1) {'foo': 'baz'}
