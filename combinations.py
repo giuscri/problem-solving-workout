@@ -11,4 +11,13 @@ def zero_one_combinations(n):
         lst.append([1] + x)
     return lst
 
-
+def combinations(S, r):
+    res = []
+    def f(r, lst):
+        if r == 0:
+            return res.append(lst)
+        for x in S:
+            if x not in lst:
+                f(r - 1, lst + [x])
+    f(r, [])
+    return res
