@@ -1,0 +1,67 @@
+about        : approximately, nearly, almost, approaching
+also         : moreover, besides
+amazing      : astonishing, startling, stunning, dazzling, remarkable
+awesome      : impressive, fabulous, astonishing, outstanding
+awful        : dreadful, alarming, frightful, terrible, horrid, shocking
+bad          : offensive, repulsive, corrupt, wicked, defective
+beautiful    : attractive, alluring, gorgeous, handsome
+begin        : commence, initiate, introduce, launch, originate
+big          : huge, immense, massive, enormous
+boring       : tedious, tiresome, commonplace, monotonous
+but          : yet, still, nevertheless, though, however, moreover
+change       : alter, transform, vary, diversify
+choose       : select, elect, nominate, identify, prefer
+cool         : rad, killer, wonderful, marvelous, fantastic, awesome
+definitely   : unquestionably, precisely, positively, clearly
+easy         : effortless, natural, comfortable, relaxed
+excellent    : superior, unsurpassed, superb, magnificent
+exciting     : thrilling, stirring, rousing, chilling
+fast         : swift, quick, fleet, hasty, instant
+finish       : complete, conclude, achieve, deplete, consume
+fun          : pleasurable, amusing, jolly
+funny        : comical, amusing, entertaining, bizarre, laughable
+get          : obtain, receive, acquire, achieve
+give         : donate, supply, deliver, distribute
+good         : satisfactory, fine, competent
+got          : received, obtained, attained
+great        : tremendous, remarkable, superior, expert, wonderful
+guy          : man, dude, person, fellow, boy
+happy        : pleased, joyous, elated, jubilant, cheerful, delighted
+hard         : complex, complicated, difficult, rigorous, harsh
+help         : assist, aid, support, serve, sustain
+hurt         : injure, impair, harm, damage, wound
+important    : significant, substantial, meaningful, critical, vital
+interesting  : absorbing, fascinating, thought-provoking, appealing
+job          : task, work, undertaking, vocation, duty, assignment
+keep         : retain, control, possess
+kid          : child, boy, girl, youngster, youth, tyke, tot
+kind         : type, variety, sort, form
+know         : comprehend, understand, realize, perceive, discern
+like         : similar, equivalent, similarly
+lots         : numerous, heaps, many, scores, innumerable
+mad          : angry, frustrated, furious, incensed, enraged
+make         : build, construct, produce, assemble, manufacture
+new          : recent, modern, current, novel
+next         : subsequently, thereafter, successively
+nice         : satisfying, gracious, charming, delightful, pleasurable, pleasing, friendly
+old          : mature, experienced, used, worn, former, previous
+part         : section, portion, segment, detail, element, component
+perfect      : flawless, faultless, ideal, whole, entire, intact
+pleasant     : agreeable, gratifying, refreshing, welcome
+prove        : demonstrate, confirm, validate, verify, corroborate
+quick        : brisk, prompt, responsive, rapid, hasty
+really       : truly, genuinely, extremely, undeniably, inarguably
+regular      : standard, routine, customary, habitual
+scared       : afraid, fearful, terrified, frightened
+see          : regard, behold, witness, gaze, realize, notice
+small        : diminutive, minor, insignificant, slight, trivial
+so           : thus, accordingly, therefore, too
+sometimes    : occasionally, intermittently, sporadically, periodically
+take         : grasp, capture, choose, select, tolerate, endure
+terrific     : extraordinary, magnificent, marvelous
+then         : first, second, next, later, finally, afterward, meanwhile, soon
+think        : conceive, imagine, ponder, reflect, contemplate
+try          : attempt, endeavor, venture, test
+use          : employ, operate, utilize
+very         : deeply, extremely, exceedingly, unusually, incredibly, intensely, truly, fully, especially, shockingly, bitterly, immeasurably, infinitely, severely, surely, chiefly
+want         : desire, crave, yearn, long, wish
