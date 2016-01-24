@@ -46,5 +46,6 @@ if __name__ == '__main__':
         if len(strppd) == 0: continue
         ps.append((dist_distance(chs_dist(strppd), en), p_txt, c))
 
-    ps.sort(key=lambda p: p[0])
+    r = ps.sort(key=lambda p: p[0]) or ps
+    assert r[0][-2] == "Cooking MC's like a pound of bacon"
     print('✓ Best bet is \"{}\", with key {}'.format(ps[0][-2], ps[0][-1]))
