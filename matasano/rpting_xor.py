@@ -8,7 +8,7 @@ def rpting_xor(s, k):
     return fxd_xor(s, k)
 
 if __name__ == '__main__':
-    s = sys.stdin.read()
+    s = sys.stdin.read().strip()
     k = sys.argv[1] if len(sys.argv) > 1 else 'ICE'
 
     ec = 'utf8'
