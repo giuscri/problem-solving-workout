@@ -51,3 +51,11 @@ if __name__ == '__main__':
     for c in cs: lst += crk_1bxor(c)
     lst.sort(key=lambda x: x[0])
     for x in lst[:3]: print('{}, ~{}'.format(repr(x[1].decode()), x[0]))
+
+    '''
+    Expected output:
+
+        λ> python3 crk_1bxor.py
+        "Cooking MC's like a pound of bacon", ~32.283483614814095
+        'Now that the party is jumping\n', ~33.43710784445039
+    '''
