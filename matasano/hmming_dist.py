@@ -1,11 +1,7 @@
-def fxd_xor(a, b):
-    assert len(a) == len(b)
-    return bytes(map(lambda p: p[0]^p[1], zip(a, b)))
+from fxd_xor import fxd_xor
 
 def hmming_dist(s, t):
     assert len(s) == len(t)
-    s = s.encode('utf8')
-    t = t.encode('utf8')
     bp = int(fxd_xor(s, t).hex(), 16)
 
     def f(bp, cnt=0):
@@ -13,3 +9,9 @@ def hmming_dist(s, t):
         if bp & 1 != 0: return f(bp >> 1, cnt +1)
         return f(bp >> 1, cnt)
     return f(bp)
+
+if __name__ == '__main__':
+    s = b'this is a test'
+    t = b'wokka wokka!!!'
+    r = hmming_dist(s, t)
+    assert r == 37
