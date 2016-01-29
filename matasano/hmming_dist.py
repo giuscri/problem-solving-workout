@@ -1,8 +1,10 @@
+import binascii
+
 from fxd_xor import fxd_xor
 
 def hmming_dist(s, t):
     assert len(s) == len(t)
-    bp = int(fxd_xor(s, t).hex(), 16)
+    bp = int(binascii.hexlify(fxd_xor(s, t)), 16)
 
     def f(bp, cnt=0):
         if bp == 0: return cnt
