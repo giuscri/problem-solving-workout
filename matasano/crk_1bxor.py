@@ -34,6 +34,7 @@ def crk_1bxor(c, tl=0.98):
         if ln/len(p) < tl: continue
         e = dict(map(lambda x: (x[0], x[1]/100*ln), en.items()))
         lst.append((chi_sqrd(o, e), _p, k))
+    lst.sort(key=lambda x: x[00])
     return lst
 
 if __name__ == '__main__':
