@@ -12,13 +12,12 @@ from crk_1bxor import crk_1bxor
 def bet_kln(c):
     r = []
     for kln in range(2, 50):
-        lst = []
+        mn = 0 
         for cmb in itertools.combinations(range(0,4), r=2):
             frst_tk = c[cmb[0]*kln:(cmb[0]+1)*kln]
             scnd_tk = c[cmb[1]*kln:(cmb[1]+1)*kln]
-            lst.append(hmming_dist(frst_tk, scnd_tk)/kln)
-        x = (sum(lst)/len(lst), kln)
-        r.append(x)
+            mn += hmming_dist(frst_tk, scnd_tk)/kln/6
+        r.append((mn, kln))
     r.sort(key=lambda p: p[0])
     return r[0][-1]
 
