@@ -33,6 +33,14 @@ def unvgnr(c, tl=0.9):
     return bytes(rws)
 
 if __name__ == '__main__':
+    '''
+    Expected output,
+        λ> python3 vigenere.py 6.txt
+        I'm back and I'm ringin''the bell
+        In ecstasy in the back of me'he fly girls yell
+        Well that's my DJ Deshay custin' all them Z's
+        ...
+    '''
     if len(sys.argv) < 2: sys.exit(-1)
     fname = sys.argv[1].strip()
     with open(fname) as f:
