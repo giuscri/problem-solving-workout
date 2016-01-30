@@ -23,13 +23,13 @@ def bet_kln(c):
 
 def unvgnr(c, tl=0.9):
     kln = bet_kln(c)
-    while len(c) % kln != 0: c += b'\x00'
+    while len(c) % kln != 0: c += [0]
     rws = [c[i:i+kln] for i in range(0, len(c), kln)]
-    cls = [bytes([r[i] for r in rws]) for i in range(kln)]
+    cls = [[r[i] for r in rws] for i in range(kln)]
     cls = list(map(lambda c: crk_1bxor(c, tl=tl)[0][1], cls))
     h = len(cls[0])
     rws = [c[i] for i in range(h) for c in cls]
-    return bytes(rws)
+    return rws
 
 if __name__ == '__main__':
     '''
@@ -45,4 +45,4 @@ if __name__ == '__main__':
     with open(fname) as f:
         c = unb64(''.join(f.read().strip().split()))
     r = unvgnr(c)
-    print(r.decode())
+    print(bytes(r).decode())

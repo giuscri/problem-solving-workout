@@ -20,9 +20,9 @@ def chi_sqrd(o, e):
 def crk_1bxor(c, tl=0.98):
     lst = []
     for b in range(0, 256):
-        k = bytes([b]) * len(c)
+        k = [b] * len(c)
         _p = fxd_xor(c, k)
-        p = bytes(map(lambda x: x+32 if x in range(65,91) else x, _p))
+        p = list(map(lambda x: x+32 if x in range(65,91) else x, _p))
         o = dict(zip(range(97,123), [0]*26))
         ln = 0
         for x in p:
@@ -43,7 +43,7 @@ if __name__ == '__main__':
                'd78397828372d363c78373e783a393b3736'
     lst = crk_1bxor(binascii.unhexlify(c))
     lst.sort(key=lambda x: x[0])
-    for x in lst[:3]: print('{}, ~{}'.format(repr(x[1].decode()), x[0]))
+    for x in lst[:3]: print('{}, ~{}'.format(repr(bytes(x[1]).decode()), x[0]))
 
     # Challenge 1.4
     with open('4.txt') as f: cs = f.read().strip().split('\n')
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     lst = []
     for c in cs: lst += crk_1bxor(c)
     lst.sort(key=lambda x: x[0])
-    for x in lst[:3]: print('{}, ~{}'.format(repr(x[1].decode()), x[0]))
+    for x in lst[:3]: print('{}, ~{}'.format(repr(bytes(x[1]).decode()), x[0]))
 
     '''
     Expected output:
