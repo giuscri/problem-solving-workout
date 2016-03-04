@@ -9,7 +9,7 @@ def rpting_xor(s, k):
     return fxd_xor(s, k)
 
 if __name__ == '__main__':
-    s = sys.stdin.read().strip().encode('utf8')
-    k = sys.argv[1].encode('utf8') if len(sys.argv) > 1 else b'ICE'
+    s = sys.stdin.buffer.read().strip()
+    k = sys.argv[1].encode() if len(sys.argv) > 1 else b'ICE'
     c = rpting_xor(s, k)
-    print(binascii.hexlify(c).decode('utf8'))
+    print(binascii.hexlify(bytes(c)).decode())
