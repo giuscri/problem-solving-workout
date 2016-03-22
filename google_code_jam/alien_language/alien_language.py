@@ -35,7 +35,7 @@ def to_regex(in_str):
     return ''.join(ret)
 
 if __name__ == '__main__':
-    with open('A-small-practice.in') as f:
+    with open('A-large-practice.in') as f:
         lines = f.read().strip().split('\n')
 
     L, D, N = map(int, re.split(' ', lines[0]))
