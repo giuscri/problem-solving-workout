@@ -13,7 +13,8 @@ fib(3n + 3) = fib(3n + 1) + fib(3n + 2) = {odd} + {odd} = {even}
 Then, whenever you have O-O-E, you'll have O-O-E again.
 
 Since you start with O-O-D (1, 1, 2), you'll have this
-pattern over and over again -- just proved by induction.
+pattern over and over again -- we've just proved it
+by induction.
 
 We can simply add the third fibonacci number then.
 '''
