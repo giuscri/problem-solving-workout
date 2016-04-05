@@ -19,6 +19,7 @@ by induction.
 We can simply add the third fibonacci number then.
 '''
 
+'''
 def g(n):
     a, b = 1, 1
     c = a + b
@@ -27,6 +28,22 @@ def g(n):
         a = c + b
         b = a + c
         c = a + b
+    raise StopIteration()
+'''
+
+# Or, using the recurrence suggested
+# by the Project Euler's overview
+def g(n):
+    a, b = 2, 8
+    yield a
+    yield b
+
+    c = 4*b + a
+    while c < n:
+        yield c
+        a = b
+        b = c
+        c = 4*b + a
     raise StopIteration()
 
 res = sum([x for x in g(4 * 10**6)])
