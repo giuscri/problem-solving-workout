@@ -30,4 +30,22 @@ we've just shown that that's the last one.
 30 = 2 * 3 * 5 and sqrt(30) > 5.
 '''
 
-# TODO
+n = 600851475143
+
+r = 2
+
+while n % 2 == 0: n = n / 2
+
+p = 3
+while n > 1:
+    if n % p == 0:
+        r = p
+        if p > math.sqrt(n): break
+
+    while n % p == 0:
+        n = n / p
+
+    r = p
+    p += 2
+
+print('*** Computed {}'.format(r))
