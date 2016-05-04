@@ -2,7 +2,7 @@ import re
 
 class UpDownFile:
     def __init__(self, fname):
-        with open(fname, 'r') as f:
+        with open(fname) as f:
             self.ws = re.split('\W+', f.read().strip())
         self.ix = 0
 
@@ -13,11 +13,11 @@ class UpDownFile:
     def __next__(self):
         if self.ix >= len(self.ws):
             raise StopIteration()
+
         ret = self.ws[self.ix]
         self.ix += 1
         return ret
 
     def ungetw(self):
-        if self.ix-1 < 0:
-            raise StopIteration()
+        if self.ix < 0: raise StopIteration()
         self.ix -= 1

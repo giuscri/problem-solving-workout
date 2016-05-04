@@ -1,17 +1,19 @@
 import threading
 
 class NotYetDoneException(Exception):
-    def __init__(self, s):
-        self.message = s
+    def __init__(self, message):
+        self.message = message
 
 class asynchronous:
-    def __init__(self, f):
-        self.f = f
+    def __init__(self, fn):
+        self.fn = fn
+        self.t = None
+        self.res = None
 
     def start(self, *args, **kwargs):
-        def _f(*args, **kwargs):
-            self.res = self.f(*args, **kwargs)
-        self.t = threading.Thread(target=_f, args=args, kwargs=kwargs)
+        def f(*args, **kwargs):
+            self.res = self.fn(*args, **kwargs)
+        self.t = threading.Thread(target=f, args=args, kwargs=kwargs)
         self.t.start()
         return self
 
@@ -19,6 +21,5 @@ class asynchronous:
         return not self.t.is_alive()
 
     def get_result(self):
-        if not self.is_done():
-            raise NotYetDoneException('the call has not yet completed its task')
-        return self.res
+        if self.is_done(): return self.res
+        raise NotYetDoneException('the call has not yet completed its task')
