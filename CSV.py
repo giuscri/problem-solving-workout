@@ -1,33 +1,49 @@
-import functools
+import re
 
-def extract_csv(fname):
-    '''
-    Takes a file name and returns (fields, records)
-    '''
-    records = []
+def prettyCSV(fname):
+
     with open(fname, 'r') as f:
-        lines = f.read().strip().split('\n')
-    fields = list(map(lambda x: x.strip(), lines[0].split(';')))
-    records = list(map(lambda x: x.split(';'), lines[1:]))
-    records = list(map(lambda l: list(map(lambda s: s.strip(), l)), records))
-    return fields, records
+        recs = f.read().strip().split('\n')
 
-def pretty_csv(fields, records):
-    '''
-    Takes (fields, records) representing a csv
-    and pretty print the data
-    '''
-    col_spans = list(map(lambda x: len(x), \
-       [functools.reduce(lambda x,y: x if len(x) > len(y) else y, \
-       map(lambda x: x[i], records), fields[i]) for i in range(len(fields))])) 
-    table_span = sum(col_spans) + 4*len(fields)
-    fmts = ['| {{{}:{}}} |'.format(i, x) for i,x in enumerate(col_spans)]
-    fmt = ''.join(fmts)
-    res = ['-' * table_span, fmt.format(*fields), '-' * table_span]
-    res += [fmt.format(*record) for record in records]
-    res += ['-' * table_span]
-    return '\n'.join(res)
+    hdr, recs = recs[0], recs[1:]
+
+    hdr = list(map(lambda s: s.strip(), re.split(';', hdr)))
+
+    recs = map(lambda r: re.split(';', r), recs)
+    recs = map(lambda r: list(map(lambda s: s.strip(), r)), recs)
+    recs = list(recs)
+
+    def f(spans, i=0):
+        if i == len(hdr):
+            return spans
+
+        def _f(lst, span, spans):
+            if len(lst) == 0:
+                return spans.append(span) or spans
+            if len(lst[0][i]) > span:
+                span = len(lst[0][i])
+            return _f(lst[1:], span, spans)
+        _f(recs, len(hdr[i]), spans)
+
+        return f(spans, i+1)
+
+    spans = f([])
+
+    ret = ['-'*(sum(map(lambda s: s+2, spans)) +1*len(hdr) +1)]
+    ret.append('|' + '|'.join([' {{:{}}} '.format(y).format(x) for x,y in zip(hdr,spans)]) + '|')
+    ret.append('-'*(sum(map(lambda s: s+2, spans)) +1*len(hdr) +1))
+
+    def __f(lst, spans):
+        if len(lst) == 0: return
+        ret.append('|' + '|'.join([' {{:{}}} '.format(y).format(x) for x,y in zip(lst[0],spans)]) + '|')
+        __f(lst[1:], spans)
+
+    __f(recs, spans)
+
+    ret.append('-'*(sum(map(lambda s: s+2, spans)) +1*len(hdr) +1))
+
+    return '\n'.join(ret)
 
 if __name__ == '__main__':
-    print(pretty_csv(*extract_csv('languages.csv')))
-    print(pretty_csv(*extract_csv('books.csv')))
+    print(prettyCSV('books.csv'))
+    print(prettyCSV('languages.csv'))
