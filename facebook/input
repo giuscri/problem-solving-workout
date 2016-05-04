@@ -1,0 +1,31 @@
+# Add some users
+add Linus Torvalds 2
+add David Bowie 0
+add Kevin Spacey 4
+add Steve Jobs 1
+add Vincent Cassel 6
+add David Gandy 10
+add Sergio Rubini 11
+add Al Pacino 3
+add Forrest Gump 5
+add Laura Morante 12
+
+# Print out some users,
+# for testing purposes
+#find 8
+#find 0
+#find 5
+
+# Make some friendships!
+mfriends 0 2 1988
+mfriends 0 5 2015
+mfriends 2 1 2024
+mfriends 2 5 1987
+mfriends 2 3 2027
+mfriends 3 6 2005
+mfriends 5 4 2008
+mfriends 10 12 1999
+mfriends 12 11 1998
+
+# Print out the groups
+extract_groups
