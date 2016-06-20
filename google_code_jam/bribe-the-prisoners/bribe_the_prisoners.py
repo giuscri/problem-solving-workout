@@ -1,18 +1,23 @@
 #!/usr/bin/python3
 
-def compute_costs(frm, to, to_free):
+def compute_costs(frm, to, to_free, cache):
+	if (frm, to, tuple(to_free)) in cache:
+		return cache[(frm, to, tuple(to_free))]
+
 	if to_free == [] or to <= frm:
 		return 0
 
-	res = []
+	lst = []
 
 	for i in range(len(to_free)):
 		costs = to - frm
-		costs += compute_costs(frm, to_free[i] - 1, to_free[:i])
-		costs += compute_costs(to_free[i] + 1, to, to_free[i + 1:])
-		res.append(costs)
+		costs += compute_costs(frm, to_free[i] - 1, to_free[:i], cache)
+		costs += compute_costs(to_free[i] + 1, to, to_free[i + 1:], cache)
+		lst.append(costs)
 
-	return min(res)
+	res = min(lst)
+	cache[(frm, to, tuple(to_free))] = res
+	return res
 
 if __name__ == '__main__':
 	import sys
@@ -25,5 +30,5 @@ if __name__ == '__main__':
 		to_free = list(map(int, sys.stdin.readline().strip().split(' ')))
 
 		fmt = 'Case #{}: {}'
-		costs = compute_costs(1, P, to_free)
+		costs = compute_costs(1, P, to_free, {})
 		print(fmt.format(i, costs))
