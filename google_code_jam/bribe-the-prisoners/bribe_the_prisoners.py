@@ -27,7 +27,7 @@ if __name__ == '__main__':
 	for i in range(1, T + 1):
 		P, _ = map(int, sys.stdin.readline().strip().split(' '))
 
-		to_free = list(map(int, sys.stdin.readline().strip().split(' ')))
+		to_free = sorted(map(int, sys.stdin.readline().strip().split(' ')))
 
 		fmt = 'Case #{}: {}'
 		costs = compute_costs(1, P, to_free, {})
